@@ -1,54 +1,14 @@
-# React + TypeScript + Vite
+Commit Duration: Time taken for React to render the committed updates.
+![Screenshot 2025-03-22 165051.png](public/Screenshot%202025-03-22%20165051.png)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Render Duration: Time taken for individual components to render.
+![Screenshot 2025-03-22 165046.png](public/Screenshot%202025-03-22%20165046.png)
 
-Currently, two official plugins are available:
+Interactions: User interactions that triggered the renders.
+- change sorting from 'name' to 'population'
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Flame Graph: Visual representation of component render times.
+![Screenshot 2025-03-22 133504.png](public/Screenshot%202025-03-22%20133504.png)
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
-```
+Ranked Chart: Sorted list of components by render duration.
+![Screenshot 2025-03-22 133746.png](public/Screenshot%202025-03-22%20133746.png)
