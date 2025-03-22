@@ -5,18 +5,18 @@ interface SearchBarProps {
   onSearchChange: (term: string) => void;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({
-  searchTerm,
-  onSearchChange,
-}) => {
-  return (
-    <input
-      type="text"
-      placeholder="Search countries..."
-      value={searchTerm}
-      onChange={(e) => onSearchChange(e.target.value)}
-    />
-  );
-};
+const SearchBar: React.FC<SearchBarProps> = React.memo(
+  ({ searchTerm, onSearchChange }: SearchBarProps) => {
+    return (
+      <input
+        type="text"
+        placeholder="Search countries..."
+        value={searchTerm}
+        onChange={(e) => onSearchChange(e.target.value)}
+      />
+    );
+  }
+);
 
+SearchBar.displayName = 'SearchBar';
 export default SearchBar;
