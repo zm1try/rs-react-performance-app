@@ -1,54 +1,45 @@
-# React + TypeScript + Vite
+## Before optimization:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Commit duration: 1.7 s
+- Render duration: 27.4 ms
 
-Currently, two official plugins are available:
+## Rendering time for components:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Home: 1.8 ms
+- SearchBar: 0.1 ms
+- Filter: 0.1 ms
+- Sort: 0.1 ms
+- CountryCard: 0.1-0.3 ms
 
-## Expanding the ESLint configuration
+## Render duration by Interactions:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Search by name: 1.7 for 24.9 ms
+- Filter by region: 1.8s for 4.4 ms
+- Sort by population: 6.3 s for 0.8 ms
+- Sort by name: 6.3 s for 0.8 ms
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
+![Screenshot 2025-03-23 112720.png](public/Screenshot%202025-03-23%20112720.png)
+![Screenshot 2025-03-23 113943.png](public/Screenshot%202025-03-23%20113943.png)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## After optimization:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+- Commit duration: 0.8 s
+- Render duration: 4.7 ms
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
-```
+## Rendering time for components:
+
+- Home: 1 ms
+- SearchBar: 0.1 ms
+- Filter: 0.4 ms
+- Sort: 0.1 ms
+- CountryCard: 0.1-0.2 ms
+
+## Render duration by Interactions:
+
+- Search by name: 0.8 for 4.7 ms
+- Filter by region: 2.6s for 1 ms
+- Sort by population: 4.1 s for 0.9 ms
+- Sort by name: 5.9 s for 0.6 ms
+
+![Screenshot 2025-03-23 114835.png](public/Screenshot%202025-03-23%20114835.png)
+![Screenshot 2025-03-23 114843.png](public/Screenshot%202025-03-23%20114843.png)
