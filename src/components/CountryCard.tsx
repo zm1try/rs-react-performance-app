@@ -19,7 +19,7 @@ const CountryCard: React.FC<CountryCardProps> = React.memo(
     onToggleVisited,
   }: CountryCardProps) => {
     return (
-      <div className="country-card">
+      <div className={`${visited ? 'visited' : ''} country-card`}>
         <img src={flag} alt={`${name} flag`} />
         <h3>{name}</h3>
         <p>Population: {population.toLocaleString()}</p>
